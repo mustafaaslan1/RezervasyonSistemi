@@ -17,27 +17,56 @@ namespace RezervasyonSistemi
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void btnKayıt_Click(object sender, EventArgs e)
         {
+            string adsoyad = txtAdSoyad.Text;
+            string kimlik = maskedKimlik.Text;
+            string telefon = maskedTelefon.Text;
+            string plan = comboNereden.Text;
+            string plan1 = comboNereye.Text;
+            string tarih = dateTimePicker1.Text;
+            string saat = maskedSaat.Text;
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            listBox1.Items.Add("Uçuş Rotası: " + comboBox1.Text + " - " + comboBox2.Text +
-                " Tarih: "  + dateTimePicker1.Text + 
-                " Saat: " + maskedTextBox1.Text +
-                " // Yolcu Bilgileri // İsim Soyisim: " + textBox1.Text + 
-                " TC Kimlik Numarası:" + maskedTextBox2.Text + 
-                " Telefon Numarası:" +maskedTextBox3.Text);
-            MessageBox.Show("Kayıt işleminiz başarı ile yapılmıştır.");
+            if (string.IsNullOrWhiteSpace(adsoyad) || string.IsNullOrWhiteSpace(kimlik) || string.IsNullOrWhiteSpace(telefon)
+                || string.IsNullOrWhiteSpace(plan) || string.IsNullOrWhiteSpace(plan1) || string.IsNullOrWhiteSpace(tarih) ||
+                string.IsNullOrWhiteSpace(saat))
+            {
+                DialogResult butunislem;
+                butunislem = MessageBox.Show("Herhangi bir sekme boş olamaz!", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                this.Hide();
+                Form2 kayit = new Form2(txtAdSoyad.Text,maskedKimlik.Text,maskedTelefon.Text,comboNereden.Text,comboNereye.Text,dateTimePicker1.Text,maskedSaat.Text);
+                kayit.ShowDialog();
+                this.Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            label8.Text = comboBox2.Text;
-            comboBox2.Text = comboBox1.Text;
-            comboBox1.Text = label8.Text;
+            label8.Text = comboNereden.Text;
+            comboNereden.Text = comboNereye.Text;
+            comboNereye.Text = label8.Text;
+
+        }
+
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            DialogResult kapat;
+            kapat = MessageBox.Show("Uygulamayı Kapatmak İstediğinize Emin Misiniz?", "UYARI", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (kapat == DialogResult.Yes)
+            {
+               kapat = MessageBox.Show("Uygulama Kapatılıyor..", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (kapat == DialogResult.OK)
+                {
+                    Application.Exit();
+                }
+            }
+            else if (kapat == DialogResult.No)
+            {
+                MessageBox.Show("Uygulama Kapatılmadı!", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
