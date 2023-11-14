@@ -22,13 +22,13 @@ namespace RezervasyonSistemi
             string adsoyad = txtAdSoyad.Text;
             string kimlik = maskedKimlik.Text;
             string telefon = maskedTelefon.Text;
-            string plan = comboNereden.Text;
-            string plan1 = comboNereye.Text;
+            string plan1 = comboNereden.Text;
+            string plan2 = comboNereye.Text;
             string tarih = dateTimePicker1.Text;
             string saat = maskedSaat.Text;
 
             if (string.IsNullOrWhiteSpace(adsoyad) || string.IsNullOrWhiteSpace(kimlik) || string.IsNullOrWhiteSpace(telefon)
-                || string.IsNullOrWhiteSpace(plan) || string.IsNullOrWhiteSpace(plan1) || string.IsNullOrWhiteSpace(tarih) ||
+                || string.IsNullOrWhiteSpace(plan1) || string.IsNullOrWhiteSpace(plan2) || string.IsNullOrWhiteSpace(tarih) ||
                 string.IsNullOrWhiteSpace(saat))
             {
                 DialogResult butunislem;

@@ -12,18 +12,18 @@ namespace RezervasyonSistemi
 {
     public partial class Form2 : Form
     {
-        public Form2(string s, string s1, string s2, string s3, string s4, string s5, string s6)
+        public Form2(string s1, string s2, string s3, string s4, string s5, string s6, string s7)
         {
             InitializeComponent();
 
-            listBox1.Items.Add(" İsim Soyisim: " + s);
-            listBox1.Items.Add(" Kimlik Numarası: " + s1);
-            listBox1.Items.Add(" Telefon Numarası " + s2);
+            listBox1.Items.Add(" İsim Soyisim: " + s1);
+            listBox1.Items.Add(" Kimlik Numarası: " + s2);
+            listBox1.Items.Add(" Telefon Numarası " + s3);
 
-            listBox2.Items.Add(" Nereden: " +s3);
-            listBox2.Items.Add(" Nereye: " +s4);
-            listBox2.Items.Add(" Uçuş Tarihi: " +s5);
-            listBox2.Items.Add(" Uçuş Saati: " +s6);
+            listBox2.Items.Add(" Nereden: " +s4);
+            listBox2.Items.Add(" Nereye: " +s5);
+            listBox2.Items.Add(" Uçuş Tarihi: " +s6);
+            listBox2.Items.Add(" Uçuş Saati: " +s7);
 
         }
 
